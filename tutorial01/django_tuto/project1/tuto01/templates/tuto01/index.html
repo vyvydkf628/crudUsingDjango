@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+{%block title%}
+title
+{%endblock%}
+{%block body%}
+<form action="/tuto01/login/" method="POST">
+    {%csrf_token%}
+    <input type="text" name="data">
+    <input type="submit" value="submit">
+</form>
+{%endblock%}

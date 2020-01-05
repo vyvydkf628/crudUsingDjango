@@ -1,0 +1,9 @@
+{%extends 'crud/base.html'%}
+{%block body%}
+<h1>asd</h1>
+{%for board in boards%}
+    <hr>
+    <p>number : {{board.pk}} title : <a href="/crud/{{board.pk}}/"> {{board.title}} </a></p>
+{%endfor%}
+    <a href="/crud/new/">write</a>
+{%endblock%}

@@ -1,0 +1,11 @@
+{%extends 'crud/base.html'%}
+{%block body%}
+<form action="/crud/create/" method="POST">
+    {%csrf_token%}
+
+    <label for="title">title : </label>
+    <input type="text" name="title"> <br>
+    <textarea name="content" id="" cols="30" rows="10"></textarea> <br>
+    <input type="submit" value="submit">
+</form>
+{%endblock%}

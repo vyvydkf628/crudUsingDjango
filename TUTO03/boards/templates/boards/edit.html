@@ -1,0 +1,12 @@
+{%extends 'boards/base.html'%}
+{%block body%}
+<h1>write</h1>
+<form action="" method="POST">
+    {%csrf_token%}
+    <label for="title">title : </label>
+    <input type="text" id="title" name="title" value='{{board.title}}'><br>
+    <label for="content">content : </label>
+    <textarea name="content" id="content" cols="30" rows="10">{{board.content}}</textarea><br>
+    <input type="submit" value="Write">
+</form>
+{%endblock%}

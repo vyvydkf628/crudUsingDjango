@@ -1,0 +1,18 @@
+{%extends 'boards/base.html' %}
+{%block body%}
+<h1>detail</h1>
+<a href="{%url 'boards:index'%}"><b>to index</b></a>
+<hr>
+
+<p>title : {{board.title}}</p>
+<p>content : {{board.content}}</p>
+<p>created_at : {{board.created_at}}</p>
+<p>updated_at : {{board.updated_at}}</p>
+
+<form action="{%url 'boards:delete' board.pk %}" method="POST">
+    {%csrf_token%}
+    <input type="submit" value="Delete">
+</form>
+<a href="{% url 'boards:edit' board.pk %}"> edit </a>
+
+{%endblock%}

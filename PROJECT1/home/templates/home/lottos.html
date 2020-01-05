@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {%for lotto in lottos%}
+    <p>{{lotto}}</p>
+    {%endfor%}
+    <p>{{lottos}}</p>
+    <p>{{real_lottos}}</p>
+    {%if lottos == real_lottos %}
+        <p>suc</p>
+    {% else %}
+        <p>shit</p>
+    {%endif%}
+</body>
+</html>

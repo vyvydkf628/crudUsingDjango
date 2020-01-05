@@ -1,0 +1,36 @@
+{%extends 'boards/base.html'%}
+
+{%block body%}
+    <h1 class= 'text-center'> DETAIL </h1>
+    <h2>{{board.pk}}th </h2>
+    <hr>
+    <p>title :{{board.title}}</p>
+    <p>content :{{board.content}}</p>
+    <p>created at : {{board.created_at}}</p>
+    <p>updated at : {{board.updated_at}}</p>
+    <p><b>comments list / the number of comments : {{comments| length}}</b></p>
+    {%for comment in comments %}
+        <li> {{comment.content}}</li>
+        <form action="{%url 'boards:comments_delete' board.pk comment.pk %}" method="POST">
+            {%csrf_token%}
+            <input type="submit" value="Delete comment">
+        </form>
+        <hr>
+    {%empty%}
+        <p>has no comment</p> 
+    {%endfor%}
+    <hr>
+    <form action="{% url 'boards:comments_create' board.pk%}" method="POST">
+        {%csrf_token%}
+        Comment : <input type="text" name = "content"/>
+        <input type="submit" value="Write">        
+    </form>
+
+    <!-- <a href="{% url 'boards:delete' board.pk%}">delete</a><br> -->
+    <form action='{%url 'boards:delete' board.pk%}' method="POST">
+        {%csrf_token%}
+        <input type="submit" value ="Delete">
+    </form>
+    <a href="{% url 'boards:index' %}"> to main</a><br>
+    <a href="{% url 'boards:edit' board.pk%}"> edit </a><br>
+{%endblock%}

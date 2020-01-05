@@ -1,0 +1,9 @@
+{%extends 'boards/base.html' %}
+{%block body%}
+<h1>index</h1>
+{%for board in boards%}
+    <a href="{%url 'boards:detail' board.pk%}"><p>title : {{board.title}} content : {{board.content}}</p> </a>
+    <hr>
+{%endfor%}
+<a href="{%url 'boards:new'%}"> write </a>
+{%endblock%}

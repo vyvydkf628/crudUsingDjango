@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3> for</h3>
+    {%for menu in my_list%}
+        <p>{{menu}}</p>
+    {%endfor%}
+    {%for user in empty_list %}
+        {{user}}
+    {%empty%}
+        no user
+    {%endfor%}
+    {%for menu in my_list%}
+        <p>{{forloop.counter}} count</p>
+        {%if forloop.first%}
+        first
+        {%endif%}
+
+    {%endfor%}
+    <h3>length fillter</h3>
+    {%for message in messages %}
+        {%if message|length > 5%}
+        <p>long</p>
+        {%else%}
+        <p>{{message}} | {{message|length}}</p>
+        {%endif%}
+    {%endfor%}
+    </body>
+</html>
